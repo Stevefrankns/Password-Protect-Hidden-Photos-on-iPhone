@@ -1,0 +1,1572 @@
+<!-- Replace YOUR-DOMAIN.com before launch -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<title>How to Password Protect Hidden Photos on iPhone — Complete Guide</title>
+<meta content="Learn exactly how to password protect hidden photos on iPhone. Compare iOS 16 native Face ID locking with third-party secure vaults like Folder Lock." name="description"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --color-bg: #FFFFFF;
+      --color-hero-bg: #F8FBFF;
+      --color-structure: #E8EDF5;
+      --color-body-text: #0A0F1A;
+      --color-heading-text: #0A0F1A;
+      --color-meta-text: #5B6472;
+      --color-white: #FFFFFF;
+      --color-saas-bg: #FFFFFF;
+      --prism-1: #FF6B6B;
+      --prism-2: #FFB347;
+      --prism-3: #96CEB4;
+      --prism-4: #4ECDC4;
+      --prism-5: #A29BFE;
+      --prism-gradient: linear-gradient(135deg, #FF6B6B, #FFB347, #96CEB4, #4ECDC4, #A29BFE);
+      --prism-gradient-wide: linear-gradient(90deg, #FF6B6B, #FFB347, #96CEB4, #4ECDC4, #A29BFE, #FF6B6B);
+      --font-heading: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-body: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --max-reading-width: 680px;
+      --max-wide-width: 1120px;
+      --section-padding-v: 76px;
+      --radius-card: 22px;
+      --shadow-card: 0 20px 70px rgba(10, 15, 26, 0.055);
+      --shadow-refraction:
+        8px 8px 28px rgba(255,107,107,0.15),
+        -8px 10px 28px rgba(78,205,196,0.15),
+        0 -8px 28px rgba(162,155,254,0.15);
+      --transition-speed: 0.25s;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--color-bg); }
+    body {
+      font-family: var(--font-body);
+      color: var(--color-body-text);
+      background: var(--color-bg);
+      line-height: 1.8;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      color: var(--color-heading-text);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.4rem;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: clamp(38px, 6vw, 60px);
+      max-width: 840px;
+      text-transform: none;
+    }
+    h2 { font-size: clamp(32px, 4vw, 46px); margin-top: 0; }
+    h3 { font-size: clamp(22px, 3vw, 28px); margin-top: 1.5rem; }
+    h4 { font-size: 1.05rem; letter-spacing: 0.01em; }
+    p { margin-bottom: 1.25rem; max-width: var(--max-reading-width); }
+    a {
+      color: var(--color-body-text);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      transition: opacity var(--transition-speed), color var(--transition-speed), background-position var(--transition-speed), border-color var(--transition-speed);
+    }
+    a:hover { opacity: 0.86; }
+    main a[target="_blank"], footer a[target="_blank"], .hero a[target="_blank"] {
+      background-image: var(--prism-gradient-wide);
+      background-size: 220% 2px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      font-weight: 600;
+    }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.45rem; }
+    li { margin-bottom: 0.55rem; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container {
+      max-width: var(--max-reading-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container-wide {
+      max-width: var(--max-wide-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section {
+      padding: var(--section-padding-v) 0;
+      border-top: 1px solid var(--color-structure);
+      background: #FFFFFF;
+      position: relative;
+    }
+    .section-alt {
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        linear-gradient(90deg, rgba(255,107,107,0.04), rgba(78,205,196,0.04), rgba(162,155,254,0.04)) border-box;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--color-structure);
+      height: 72px;
+      display: flex;
+      align-items: center;
+      transition: box-shadow var(--transition-speed), border-color var(--transition-speed);
+    }
+    .site-header.scrolled {
+      border-bottom-color: rgba(232,237,245,0.72);
+      box-shadow: 0 18px 40px rgba(10, 15, 26, 0.045);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: var(--max-wide-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 28px;
+    }
+    .site-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-heading-text);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        var(--prism-gradient) border-box;
+      box-shadow: 0 10px 24px rgba(78,205,196,0.12);
+      overflow: hidden;
+    }
+    .brand-mark svg { width: 21px; height: 21px; display: block; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--color-meta-text);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--color-body-text); }
+
+    .btn-outline, .btn-filled {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .btn-filled {
+      background: var(--prism-gradient-wide);
+      background-size: 240% 240%;
+      border: 1px solid transparent;
+      color: var(--color-body-text);
+      box-shadow: 0 18px 48px rgba(78,205,196,0.16);
+      text-decoration: none;
+    }
+    .btn-filled:hover {
+      color: var(--color-body-text);
+      animation: spectrumSweep 1.25s ease infinite;
+      opacity: 1;
+    }
+    .btn-outline {
+      border: 0;
+      color: var(--color-body-text);
+      background: transparent;
+      padding-left: 4px;
+      padding-right: 4px;
+      text-decoration: none;
+    }
+    .btn-outline::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      bottom: 8px;
+      height: 1px;
+      background: var(--prism-gradient-wide);
+      background-size: 220% 100%;
+      transition: transform .25s ease;
+      transform-origin: left;
+    }
+    .btn-outline:hover::before { transform: scaleX(1.08); }
+    .hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-structure);
+      border-radius: 12px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-heading-text);
+      width: 44px;
+      height: 44px;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(162,155,254,0.14), transparent 32%),
+        radial-gradient(circle at 75% 70%, rgba(78,205,196,0.12), transparent 28%),
+        var(--color-hero-bg);
+      padding-top: 72px;
+      padding-bottom: 82px;
+      border-bottom: 1px solid var(--color-structure);
+      overflow: hidden;
+    }
+    .hero .container {
+      max-width: var(--max-wide-width);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+      gap: 52px;
+      align-items: center;
+    }
+    .hero .container > *:not(.hero-prism) { grid-column: 1; }
+    .breadcrumb {
+      font-size: 0.78rem;
+      color: var(--color-meta-text);
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+    }
+    .hero h1 {
+      position: relative;
+      padding-bottom: 24px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: min(440px, 100%);
+      height: 1px;
+      background: var(--prism-gradient-wide);
+      background-size: 250% 100%;
+      transform-origin: left;
+      animation: prismRuleGrow 800ms ease both, prismTravel 2200ms linear infinite;
+    }
+    .prism-text {
+      display: inline;
+      background: var(--prism-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.86rem;
+      color: var(--color-meta-text);
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--color-structure);
+      padding-bottom: 1rem;
+      max-width: var(--max-reading-width);
+    }
+    .hero-prism {
+      grid-column: 2;
+      grid-row: 1 / span 5;
+      min-height: 360px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .hero-prism::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border: 1px solid var(--color-structure);
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+    .hero-prism-triangle {
+      width: 0;
+      height: 0;
+      border-top: 112px solid transparent;
+      border-bottom: 112px solid transparent;
+      border-left: 194px solid rgba(232,237,245,0.76);
+      filter: drop-shadow(0 22px 42px rgba(10,15,26,0.08));
+      position: relative;
+      transform: rotate(-8deg);
+    }
+    .hero-prism-triangle::after {
+      content: "";
+      position: absolute;
+      left: -194px;
+      top: -112px;
+      width: 194px;
+      height: 224px;
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+      background: var(--prism-gradient);
+      opacity: 0.35;
+      mix-blend-mode: multiply;
+    }
+    .hero-ray {
+      position: absolute;
+      left: 58%;
+      top: 50%;
+      width: 170px;
+      height: 1px;
+      background: var(--prism-gradient-wide);
+      transform-origin: left center;
+      opacity: 0.55;
+    }
+    .hero-ray:nth-child(2) { transform: rotate(-24deg); }
+    .hero-ray:nth-child(3) { transform: rotate(-9deg); }
+    .hero-ray:nth-child(4) { transform: rotate(8deg); }
+    .hero-ray:nth-child(5) { transform: rotate(25deg); }
+
+    .quick-answer, .req-box, .quiz-result {
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        var(--prism-gradient) border-box;
+      border: 1px solid transparent;
+      border-left: 4px solid transparent;
+      padding: 24px;
+      border-radius: 0 20px 20px 0;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-card);
+    }
+    .quick-answer-label {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--color-meta-text);
+      margin-bottom: 0.5rem;
+      display: block;
+      letter-spacing: 0.14em;
+    }
+
+    .content-wrapper {
+      display: flex;
+      gap: 52px;
+      max-width: var(--max-wide-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .main-content { flex: 1; max-width: var(--max-reading-width); }
+    .sidebar { width: 280px; flex-shrink: 0; display: none; }
+    @media(min-width: 1024px) { .sidebar { display: block; } }
+
+    .sticky-toc {
+      position: sticky;
+      top: 104px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px);
+      padding: 24px;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-structure);
+    }
+    .sticky-toc h4 { font-size: 1rem; margin-bottom: 1rem; letter-spacing: 0.02em; }
+    .sticky-toc ul { list-style: none; padding: 0; }
+    .sticky-toc li { margin-bottom: 0.75rem; font-size: 0.85rem; }
+    .sticky-toc a {
+      color: var(--color-meta-text);
+      text-decoration: none;
+      background-image: none;
+    }
+    .sticky-toc a.active {
+      color: var(--color-body-text);
+      font-weight: 700;
+      background-image: var(--prism-gradient-wide);
+      background-size: 100% 1px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+    }
+
+    .content-figure {
+      margin: 2rem 0;
+      border-radius: 28px;
+      padding: 10px;
+      background:
+        linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+        linear-gradient(135deg, rgba(232,237,245,0.95), rgba(232,237,245,0.42)) border-box;
+      border: 1px solid transparent;
+      box-shadow: 0 18px 60px rgba(10,15,26,0.05);
+      overflow: hidden;
+      position: relative;
+    }
+    .content-figure img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 20px;
+      background: #FFFFFF;
+    }
+    .content-figure.compact img {
+      max-height: 420px;
+      width: auto;
+      margin: 0 auto;
+    }
+    .image-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin: 2.25rem 0;
+    }
+    .image-row .content-figure { margin: 0; height: 100%; }
+    .image-row .content-figure img { height: 100%; object-fit: contain; }
+    .image-row.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .image-row.three img { max-height: 360px; }
+
+    .saas-moment {
+      background:
+        linear-gradient(180deg, #FFFFFF, #F8FBFF);
+      color: var(--color-body-text);
+      padding: 86px 0;
+      text-align: center;
+      border-top: 1px solid var(--color-structure);
+      border-bottom: 1px solid var(--color-structure);
+      position: relative;
+      overflow: hidden;
+    }
+    .saas-moment::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -45% -20%;
+      height: 360px;
+      background: radial-gradient(circle, rgba(78,205,196,0.12), transparent 60%);
+      pointer-events: none;
+    }
+    .saas-moment h2, .saas-moment h3 { color: var(--color-body-text); }
+    .saas-moment p { color: var(--color-meta-text); max-width: 660px; margin: 0 auto 2rem auto; }
+    .saas-moment .btn-filled { background: var(--prism-gradient-wide); color: var(--color-body-text); border-color: transparent; }
+    .saas-moment .btn-outline { color: var(--color-body-text); }
+    .saas-dashboard {
+      margin: 3rem auto 0;
+      max-width: 800px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid var(--color-structure);
+      border-radius: 28px;
+      padding: 16px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+    }
+    .saas-dashboard::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: var(--prism-gradient);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.72;
+      pointer-events: none;
+    }
+    .saas-dashboard > div:first-child {
+      border-bottom-color: var(--color-structure) !important;
+    }
+    .feature-chip-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .feature-chip {
+      background: #FFFFFF;
+      padding: 10px 16px;
+      border: 1px solid var(--color-structure);
+      border-radius: 999px;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 26px rgba(10,15,26,0.035);
+    }
+
+    .comparison-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 2rem 0;
+    }
+    .comp-card, .interactive-quiz, .req-box, .f-item {
+      background: #FFFFFF;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-structure);
+      position: relative;
+      overflow: hidden;
+    }
+    .comp-card {
+      padding: 30px;
+      border-top: 1px solid var(--color-structure);
+    }
+    .comp-card:hover, .interactive-quiz:hover, .req-box:hover, .f-item:hover, .content-figure:hover {
+      border-image: var(--prism-gradient) 1;
+      box-shadow: var(--shadow-refraction);
+    }
+    .comp-card.highlight { border-color: transparent; border-image: var(--prism-gradient) 1; }
+    .comp-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .comp-card-badge {
+      display: inline-block;
+      padding: 4px 0;
+      background: transparent !important;
+      color: var(--color-meta-text) !important;
+      font-size: 0.72rem;
+      border-radius: 0;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      font-family: var(--font-body);
+      background-image: var(--prism-gradient-wide) !important;
+      background-size: 100% 1px !important;
+      background-repeat: no-repeat !important;
+      background-position: left bottom !important;
+    }
+    .comp-card.highlight .comp-card-badge {
+      background-image: var(--prism-gradient-wide) !important;
+      color: var(--color-body-text) !important;
+    }
+    .comp-feature-list { list-style: none; padding: 0; margin: 1.5rem 0; font-size: 0.94rem; }
+    .comp-feature-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--color-structure);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .comp-feature-list li::before {
+      content: '✓';
+      background: var(--prism-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+    .comp-feature-list li.negative::before { content: '✕'; color: var(--color-meta-text); background: none; }
+
+    .feature-groups { margin: 2rem 0; }
+    .f-group { margin-bottom: 2rem; }
+    .f-group h4 {
+      color: var(--color-body-text);
+      text-transform: uppercase;
+      font-size: 0.86rem;
+      border-bottom: 1px solid var(--color-structure);
+      padding-bottom: 8px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.14em;
+    }
+    .f-item {
+      margin-bottom: 1rem;
+      padding: 18px 20px;
+      border-left: 1px solid transparent;
+      border-image: linear-gradient(#E8EDF5, #E8EDF5) 1;
+      box-shadow: none;
+    }
+    .f-item strong { display: block; font-family: var(--font-heading); font-size: 1.1rem; }
+
+    .interactive-quiz {
+      padding: 32px;
+      margin: 2rem 0;
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: 12px; margin: 1.5rem 0; }
+    .quiz-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--color-structure);
+      border-radius: 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #FFFFFF;
+    }
+    .quiz-label:hover {
+      border-color: transparent;
+      box-shadow: var(--shadow-refraction);
+    }
+    input[type="radio"] { accent-color: #4ECDC4; transform: scale(1.15); margin-top: 5px; }
+    .quiz-result { display: none; margin-top: 24px; }
+
+    .trouble-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.92rem;
+      border: 1px solid var(--color-structure);
+      background: #FFFFFF;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .trouble-table th, .trouble-table td {
+      padding: 16px;
+      border: 1px solid var(--color-structure);
+      text-align: left;
+      vertical-align: top;
+    }
+    .trouble-table th {
+      background: var(--prism-gradient);
+      color: var(--color-body-text);
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .faq-layout { display: flex; gap: 48px; }
+    .faq-cats { width: 250px; flex-shrink: 0; }
+    .faq-cats h4 { font-size: 1.15rem; }
+    .faq-content { flex: 1; }
+    .accordion-item { border-bottom: 1px solid var(--color-structure); }
+    .accordion-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 18px 0;
+      font-family: var(--font-heading);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--color-heading-text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+    .accordion-btn::after { content: '+'; font-size: 1.5rem; transition: transform 0.3s; }
+    .accordion-btn[aria-expanded="true"]::after { transform: rotate(45deg); }
+    .accordion-panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+    .accordion-inner { padding-bottom: 18px; font-size: 0.95rem; color: var(--color-meta-text); }
+
+    .site-footer {
+      background: #FFFFFF;
+      color: var(--color-body-text);
+      padding: 70px 24px 34px;
+      font-size: 0.88rem;
+      margin-top: 64px;
+      border-top: 1px solid var(--color-structure);
+    }
+    .site-footer a { color: var(--color-body-text); }
+    .site-footer a:hover { color: var(--color-body-text); text-decoration: underline; }
+    .footer-grid {
+      max-width: var(--max-wide-width);
+      margin: 0 auto 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 48px;
+    }
+    .footer-col h4 {
+      color: var(--color-body-text);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .footer-brand-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-col ul { list-style: none; padding: 0; }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-disclosure {
+      max-width: var(--max-wide-width);
+      margin: 0 auto;
+      border-top: 1px solid var(--color-structure);
+      padding-top: 24px;
+      color: var(--color-meta-text);
+      font-size: 0.82rem;
+      text-align: center;
+    }
+    .footer-disclosure p { margin-left: auto; margin-right: auto; }
+
+    .refraction-prism {
+      width: min(520px, 100%);
+      height: 210px;
+      margin: 34px auto 24px;
+      position: relative;
+      overflow: visible;
+    }
+    .prism-core {
+      position: absolute;
+      left: 42%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border-top: 74px solid transparent;
+      border-bottom: 74px solid transparent;
+      border-left: 128px solid rgba(232,237,245,0.88);
+      transform: translate(-50%, -50%);
+      filter: drop-shadow(0 22px 34px rgba(10,15,26,0.08));
+    }
+    .prism-core::after {
+      content: "";
+      position: absolute;
+      left: -128px;
+      top: -74px;
+      width: 128px;
+      height: 148px;
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+      background: var(--prism-gradient);
+      opacity: 0.45;
+    }
+    .ray {
+      position: absolute;
+      left: calc(42% + 64px);
+      top: 50%;
+      height: 2px;
+      width: 160px;
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 650ms ease;
+    }
+    .ray-1 { background: #FF6B6B; transform: rotate(-26deg) scaleX(0); }
+    .ray-2 { background: #FFB347; transform: rotate(-12deg) scaleX(0); }
+    .ray-3 { background: #96CEB4; transform: rotate(2deg) scaleX(0); }
+    .ray-4 { background: #4ECDC4; transform: rotate(16deg) scaleX(0); }
+    .ray-5 { background: #A29BFE; transform: rotate(30deg) scaleX(0); }
+    .refraction-prism.is-visible .ray-1 { transform: rotate(-26deg) scaleX(1); transition-delay: 0ms; }
+    .refraction-prism.is-visible .ray-2 { transform: rotate(-12deg) scaleX(1); transition-delay: 90ms; }
+    .refraction-prism.is-visible .ray-3 { transform: rotate(2deg) scaleX(1); transition-delay: 180ms; }
+    .refraction-prism.is-visible .ray-4 { transform: rotate(16deg) scaleX(1); transition-delay: 270ms; }
+    .refraction-prism.is-visible .ray-5 { transform: rotate(30deg) scaleX(1); transition-delay: 360ms; }
+
+    .btn-filled::after, .btn-outline::after, .comp-card::after, .interactive-quiz::after, .req-box::after, .content-figure::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -30%;
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.88), transparent);
+      transform: skewX(-20deg);
+      transition: left 600ms ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .btn-filled:hover::after, .btn-outline:hover::after, .comp-card:hover::after, .interactive-quiz:hover::after, .req-box:hover::after, .content-figure:hover::after {
+      left: 130%;
+    }
+    .btn-filled > *, .btn-outline > * { position: relative; z-index: 2; }
+
+    .snap-ready {
+      opacity: 0;
+      transform: translateY(16px);
+      filter: hue-rotate(35deg) saturate(1.35);
+    }
+    .snap-ready.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: hue-rotate(0deg) saturate(1);
+      transition: opacity 200ms ease, transform 200ms ease, filter 200ms ease;
+    }
+
+    @keyframes prismRuleGrow {
+      from { transform: scaleX(0); opacity: 0; }
+      to { transform: scaleX(1); opacity: 1; }
+    }
+    @keyframes prismTravel {
+      from { background-position: 0% 50%; }
+      to { background-position: 100% 50%; }
+    }
+    @keyframes spectrumSweep {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #native-method [style*="#f0fdf4"],
+    #native-method [style*="#fef2f2"] {
+      background: #FFFFFF !important;
+      border-left: 4px solid transparent !important;
+      border-image: var(--prism-gradient) 1 !important;
+      border-radius: 18px !important;
+      box-shadow: var(--shadow-card);
+    }
+    #native-method [style*="#166534"],
+    #native-method [style*="#991b1b"] {
+      color: var(--color-body-text) !important;
+    }
+
+    @media (max-width: 900px) {
+      .hero .container {
+        display: block;
+      }
+      .hero-prism {
+        min-height: 170px;
+        margin-top: 32px;
+      }
+      .hero-prism::before { width: 170px; height: 170px; }
+      .hero-prism-triangle {
+        border-top-width: 64px;
+        border-bottom-width: 64px;
+        border-left-width: 110px;
+      }
+      .hero-prism-triangle::after {
+        left: -110px;
+        top: -64px;
+        width: 110px;
+        height: 128px;
+      }
+      .image-row, .image-row.three { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      body { font-size: 15px; }
+      .site-header { height: 68px; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(18px);
+        padding: 24px;
+        border-bottom: 1px solid var(--color-structure);
+        box-shadow: 0 18px 32px rgba(10,15,26,0.06);
+      }
+      .nav-links.active { display: flex; }
+      .hamburger { display: inline-flex; align-items: center; justify-content: center; }
+      .content-wrapper { display: block; }
+      .main-content { max-width: 100%; }
+      .faq-layout { flex-direction: column; gap: 24px; }
+      .faq-cats { width: 100%; }
+      .saas-moment { padding: 56px 24px; }
+      .content-figure { border-radius: 22px; padding: 8px; }
+      .content-figure:hover { box-shadow: 0 16px 38px rgba(78,205,196,0.13); }
+      .refraction-prism {
+        height: 150px;
+        width: 100%;
+        max-width: 320px;
+      }
+      .prism-core {
+        left: 36%;
+        border-top-width: 48px;
+        border-bottom-width: 48px;
+        border-left-width: 83px;
+      }
+      .prism-core::after {
+        left: -83px;
+        top: -48px;
+        width: 83px;
+        height: 96px;
+      }
+      .ray {
+        left: calc(36% + 42px);
+        width: 110px;
+      }
+      .footer-grid { gap: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+      .snap-ready { opacity: 1; transform: none; filter: none; }
+      .ray { transform: scaleX(1); }
+    }
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="site-header" id="header">
+<div class="nav-container">
+<div class="site-brand">
+<span aria-hidden="true" class="brand-mark">
+<svg focusable="false" role="img" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="brandPrism" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#FF6B6B"></stop>
+<stop offset="28%" stop-color="#FFB347"></stop>
+<stop offset="52%" stop-color="#96CEB4"></stop>
+<stop offset="76%" stop-color="#4ECDC4"></stop>
+<stop offset="100%" stop-color="#A29BFE"></stop>
+</lineargradient>
+</defs>
+<path d="M24 4 40 10v12c0 10.5-6.6 17.8-16 22C14.6 39.8 8 32.5 8 22V10l16-6Z" fill="url(#brandPrism)" opacity=".95"></path>
+<path d="M17 23h14v11H17V23Zm3-1v-3.4c0-2.7 1.8-4.6 4-4.6s4 1.9 4 4.6V22h-2.8v-3.2c0-1.35-.5-2.2-1.2-2.2s-1.2.85-1.2 2.2V22H20Z" fill="#fff"></path>
+</svg>
+</span>
+<span class="brand-text">Photo Privacy Hub</span></div>
+<button aria-label="Toggle navigation" class="hamburger" id="mobile-menu-btn">☰</button>
+<nav class="nav-links" id="nav-links">
+<a href="#overview">Guide</a>
+<a href="#native-method">Face ID Lock</a>
+<a href="#app-method">App Locks</a>
+<a href="#comparison">Comparison</a>
+<a href="#faq">FAQ</a>
+<a class="btn-outline" href="#why-recommend">See Our Top Pick →</a>
+</nav>
+</div>
+</header>
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="container">
+<div class="breadcrumb">Guides » iOS Privacy » Photo Security</div>
+<h1>How to <span class="prism-text">Password Protect Hidden Photos</span> on iPhone — Complete Guide</h1>
+<p style="font-size: 1.1rem; color: var(--color-meta-text);">Whether you want to lock your gallery from snooping friends or secure <a href="https://www.privacymonitor.com/articles/privacy-guide/" rel="noopener noreferrer" target="_blank">sensitive images</a> completely, here is exactly how to password protect hidden photos on iOS using built-in tools and dedicated secure vaults.</p>
+<div class="hero-meta">
+<span>Editorial Team</span>
+<span>·</span>
+<span>Updated: May 2026</span>
+<span>·</span>
+<span>12 min read</span>
+</div>
+<div class="quick-answer">
+<span class="quick-answer-label">Quick Answer</span>
+<p><strong>Can you password protect hidden photos on iPhone?</strong> Yes. If you are running iOS 16 or later, your iPhone's "Hidden" album is automatically locked behind Face ID, Touch ID, or your device passcode. To add a <em>separate</em>, custom password distinct from your main phone passcode, you must use a third-party secure vault app like Folder Lock iOS.</p>
+</div>
+<div aria-hidden="true" class="hero-prism"><div class="hero-prism-triangle"></div><span class="hero-ray"></span><span class="hero-ray"></span><span class="hero-ray"></span><span class="hero-ray"></span></div></div>
+</section>
+<!-- MAIN CONTENT LAYOUT -->
+<div class="content-wrapper">
+<!-- STICKY SIDEBAR -->
+<aside class="sidebar">
+<div class="sticky-toc">
+<h4>In This Guide</h4>
+<ul id="toc-list">
+<li><a href="#overview">Overview &amp; Requirements</a></li>
+<li><a href="#native-method">Method 1: Native Face ID Lock</a></li>
+<li><a href="#app-method">Method 2: Secure Vault Apps</a></li>
+<li><a href="#why-recommend">Our Recommended Tool</a></li>
+<li><a href="#comparison">Method Comparison</a></li>
+<li><a href="#troubleshooting">Troubleshooting Issues</a></li>
+<li><a href="#interactive-quiz">Which Method Is Right For You?</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</div>
+</aside>
+<!-- CONTENT BODY -->
+<main class="main-content">
+<!-- S3: OVERVIEW & REQUIREMENTS -->
+<section class="section toc-target" id="overview">
+<h2>What You Need to Know Before Starting</h2>
+<p>Knowing <strong>how to password protect hidden photos on iPhone</strong> has changed dramatically over the last few iOS updates. Previously, putting a photo in the "Hidden" album simply moved it out of the main camera roll, but anyone scrolling to the Albums tab could still open it. It wasn't actually protected.</p><figure class="content-figure"><img alt="Private iPhone hidden album screen representing protected personal photos" decoding="async" loading="lazy" src="https://i.ibb.co/VWwRM3SS/iphone-hidden-album-private-photos.jpg"/></figure>
+<p>Today, there are two primary ways to lock hidden photos iphone users rely on:</p>
+<ol>
+<li><strong>The Built-in OS Method:</strong> Relying on iOS 16+ which automatically links the Hidden Album to your Face ID or device passcode.</li>
+<li><strong>The Vault App Method:</strong> Using a dedicated app to set a <em>completely different</em> password specifically for sensitive photos.</li>
+</ol>
+<div class="req-box">
+<h4>OS Compatibility &amp; Requirements</h4>
+<ul>
+<li><strong>For Native Locking:</strong> Your iPhone must be updated to at least iOS 16. Older versions do not support biometric locking of the Hidden album.</li>
+<li><strong>For App Vaults:</strong> Works on any iOS version supported by the App Store (generally iOS 12+). Requires downloading a trusted third-party app.</li>
+</ul>
+</div>
+</section>
+<!-- S4: METHODS GUIDE - NATIVE -->
+<section class="section section-alt toc-target" id="native-method">
+<h2>Lock Hidden Photos with Face ID on iPhone (Built-in)</h2>
+<p>If you have <a href="https://www.inverse.com/input/guides/how-to-keep-nudes-safe-iphone-ios" rel="noopener noreferrer" target="_blank">iOS 16</a> or later, Apple finally added the ability to lock your Hidden and Recently Deleted albums. This is the fastest method, as it requires no extra software.</p><figure class="content-figure"><img alt="iPhone lock screen security concept for Face ID protected hidden photos" decoding="async" loading="lazy" src="https://i.ibb.co/xtZC7X09/lock-screen-security.jpg"/></figure>
+<h3>Step-by-Step Instructions</h3>
+<ol>
+<li>Open the <strong>Settings</strong> app on your iPhone.</li>
+<li>Scroll down and tap on <strong>Photos</strong>.</li>
+<li>Find the toggle that says <strong>Use Face ID</strong> (or Touch ID, depending on your model). Toggle it <strong>ON</strong>.</li>
+<li>Ensure the toggle for <strong>Show Hidden Album</strong> is also turned ON (otherwise you won't be able to find the album to access it).</li>
+<li>Open your <strong>Photos app</strong>, select the photos you want to hide, tap the three dots in the top right, and select <strong>Hide</strong>.</li>
+</ol><figure class="content-figure compact"><img alt="Touch ID authentication screen for a secure iOS photo vault app" decoding="async" loading="lazy" src="https://i.ibb.co/20vP7Vnf/vault-ios-appstore-touch-id-authentication.png"/></figure>
+<div style="display: flex; gap: 24px; margin: 1.5rem 0;">
+<div style="flex: 1; padding: 16px; background: #f0fdf4; border-left: 4px solid #22c55e; border-radius: 4px;">
+<strong style="color: #166534; display: block;">Best For</strong>
+<span style="font-size: 0.9rem;">Casual privacy. Keeping photos away from friends or family who briefly borrow your unlocked phone to look at something else.</span>
+</div>
+<div style="flex: 1; padding: 16px; background: #fef2f2; border-left: 4px solid #ef4444; border-radius: 4px;">
+<strong style="color: #991b1b; display: block;">Limitations</strong>
+<span style="font-size: 0.9rem;">Anyone who knows your main iPhone passcode can unlock the Hidden album. You cannot set a different password for hidden photos iphone natively.</span>
+</div>
+</div>
+</section>
+<!-- S4: METHODS GUIDE - APP VAULT -->
+<section class="section toc-target" id="app-method">
+<h2>How to Add an Extra Password to iPhone Hidden Photos</h2>
+<p>A major security gap with the native iOS method is the shared passcode. If your partner, child, or a snooping acquaintance knows the 6-digit PIN to unlock your phone, they can automatically unlock your hidden album too.</p>
+<p>To truly <strong>password protect a photo album on iPhone</strong> independently, you need to use a <a href="https://appadvice.com/app/secure-gallery-password-vault-hide-photo-video/959450745" rel="noopener noreferrer" target="_blank">secure vault app</a> that isolates the photos from the iOS ecosystem.</p><figure class="content-figure compact"><img alt="iOS vault app interface for locking private photos and videos" decoding="async" loading="lazy" src="https://i.ibb.co/gbz6pVrD/vault-ios-appstore-lock-photos-videos.png"/></figure>
+<h3>Why Use a Secure Vault?</h3>
+<ul>
+<li><strong>Separate Credentials:</strong> Set a different password for hidden photos iphone doesn't know about.</li>
+<li><strong>Decoy Passwords:</strong> Advanced apps let you set a fake PIN that opens an empty vault if you are forced to unlock it.</li>
+<li><strong>Break-in Tracking:</strong> Some apps take a photo using the front-facing camera if an incorrect PIN is entered.</li>
+</ul><figure class="content-figure compact"><img alt="PIN pattern and password credential options in a secure vault app" decoding="async" loading="lazy" src="https://i.ibb.co/DPK7Tw28/vault-ios-appstore-credentials-pin-pattern-password.png"/></figure>
+</section>
+<!-- S5: WHY RECOMMEND (PREMIUM SAAS MOMENT) -->
+</main>
+</div> <!-- Close standard content for full bleed section -->
+<section class="saas-moment toc-target" id="why-recommend">
+<div class="container-wide">
+<h2>The Tool We Recommend for Ultimate Photo Privacy</h2>
+<p>While the native iOS Hidden Album is fine for basic privacy, it falls short when you need real security. For users who need to completely isolate sensitive media with a unique PIN, we recommend <strong><a href="https://newsoftwares.net/" rel="noopener noreferrer" target="_blank">Folder Lock iOS</a></strong>.</p><div class="image-row"><figure class="content-figure compact"><img alt="Folder Lock iOS screenshot showing private vault navigation" decoding="async" loading="lazy" src="https://i.ibb.co/vCw7q9JY/folder-lock-ios-screenshot-2.png"/></figure><figure class="content-figure compact"><img alt="Folder Lock iOS screenshot showing protected media vault features" decoding="async" loading="lazy" src="https://i.ibb.co/Wpt2CkXt/folder-lock-ios-screenshot-4.png"/></figure></div>
+<div class="saas-dashboard">
+<!-- Mockup Placeholder -->
+<div style="height: 30px; border-bottom: 1px solid #2a3a37; display: flex; align-items: center; padding: 0 16px; gap: 8px;">
+<div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></div>
+<div style="width: 10px; height: 10px; border-radius: 50%; background: #eab308;"></div>
+<div style="width: 10px; height: 10px; border-radius: 50%; background: #22c55e;"></div>
+</div>
+<div style="padding: 40px 20px; text-align: left;">
+<h3 style="font-family: var(--font-body); font-size: 1.1rem; margin-bottom: 24px;">Enter PIN to Access Vault</h3>
+<div style="display: grid; grid-template-columns: repeat(3, 60px); gap: 16px; justify-content: center; margin-bottom: 24px;">
+<div style="height: 60px; border-radius: 50%; border: 1px solid #4a5a57; display:flex; align-items:center; justify-content:center; font-size: 1.5rem;">1</div>
+<div style="height: 60px; border-radius: 50%; border: 1px solid #4a5a57; display:flex; align-items:center; justify-content:center; font-size: 1.5rem;">2</div>
+<div style="height: 60px; border-radius: 50%; border: 1px solid #4a5a57; display:flex; align-items:center; justify-content:center; font-size: 1.5rem;">3</div>
+</div>
+</div>
+</div>
+<div class="feature-chip-container">
+<div class="feature-chip"><span>🔒</span> Independent Master PIN</div>
+<div class="feature-chip"><span>🎭</span> Decoy Vault Mode</div>
+<div class="feature-chip"><span>📸</span> Monitor Hack Attempts</div>
+<div class="feature-chip"><span>☁️</span> Secure Cloud Backup</div>
+<div class="feature-chip"><span>📲</span> Wi-Fi Photo Transfer</div>
+<div class="feature-chip"><span>💻</span> Cross-Platform Sync</div>
+</div><div aria-hidden="true" class="refraction-prism"><div class="prism-core"></div><span class="ray ray-1"></span><span class="ray ray-2"></span><span class="ray ray-3"></span><span class="ray ray-4"></span><span class="ray ray-5"></span></div><figure class="content-figure compact"><img alt="Folder Lock vault displayed across iPhone and iPad screens" decoding="async" loading="lazy" src="https://i.ibb.co/8LxjHwBP/vault-ios-mobile-and-tablet-mockup.png"/></figure>
+<div style="display: flex; gap: 16px; justify-content: center;">
+<a class="btn-filled btn-spectrum" href="https://www.newsoftwares.net/download/folderlock-ios/" rel="noopener noreferrer" target="_blank">Download on App Store →</a>
+<a class="btn-outline" href="https://store.newsoftwares.net/?add=fl" rel="noopener noreferrer" target="_blank">View Premium Features</a>
+</div>
+</div>
+</section>
+<div class="content-wrapper" style="margin-top: 64px;">
+<!-- Spacer sidebar to align main content again -->
+<aside class="sidebar"></aside>
+<main class="main-content">
+<!-- S7: CORE FEATURES (V8 - Grouped by Category) -->
+<section class="section section-alt">
+<h2>What to Look for in an iPhone Photo Vault</h2><figure class="content-figure"><img alt="Data protection vault illustration for storing sensitive photo albums securely" decoding="async" loading="lazy" src="https://i.ibb.co/bMzYGK6K/Data-Protection-Vault.jpg"/></figure>
+<p>If you choose to move beyond Apple's native lock, a robust secure vault should offer these capabilities:</p>
+<div class="feature-groups">
+<div class="f-group">
+<h4>Access Control</h4>
+<div class="f-item">
+<strong>Separate Master Password</strong>
+              Creates a boundary between unlocking your phone and unlocking your private photos.
+            </div>
+<div class="f-item">
+<strong>Decoy PIN</strong>
+              Allows you to set a secondary fake password that opens an empty photo gallery if someone demands access to your vault.
+            </div>
+</div><figure class="content-figure compact"><img alt="iOS secure vault interface for access control and private media" decoding="async" loading="lazy" src="https://i.ibb.co/HDTt1D1R/ns-vault-ios-1.png"/></figure>
+<div class="f-group">
+<h4>Media Management</h4>
+<div class="f-item">
+<strong>In-App Secure Camera</strong>
+              Take photos directly inside the secure app so they never touch the iOS Camera Roll.
+            </div>
+<div class="f-item">
+<strong>Built-in Secure Browser</strong>
+              Surf the web and download images directly into your protected vault. These files bypass your standard iPhone storage entirely.
+            </div>
+</div><figure class="content-figure"><img alt="Encrypted media vault illustration for private photos and videos" decoding="async" loading="lazy" src="https://i.ibb.co/HL2p3K4V/Media-Vault.jpg"/></figure>
+<div class="f-group">
+<h4>Connectivity &amp; Backup</h4>
+<div class="f-item">
+<strong>Wi-Fi Transfer</strong>
+              Import sensitive photos wirelessly from your computer straight into your iPhone's vault over a local network, keeping them off standard cloud drives.
+            </div>
+<div class="f-item">
+<strong>Cross-Platform Syncing</strong>
+              Securely back up your hidden albums and access them across other devices (including Mac and Windows) with end-to-end encryption.
+            </div>
+</div><figure class="content-figure compact"><img alt="Secure cloud backup option for encrypted iOS vault photos" decoding="async" loading="lazy" src="https://i.ibb.co/dsZkZX9t/vault-ios-appstore-cloud-backup-dropbox.png"/></figure>
+</div>
+</section>
+<!-- S8: METHODS COMPARISON (V3 Side-by-side cards) -->
+<section class="section toc-target" id="comparison">
+<h2>Hidden Album vs Locked Vault App — Which Is More Secure?</h2><figure class="content-figure"><img alt="Visual comparison of a simple hidden album and a locked data vault" decoding="async" loading="lazy" src="https://i.ibb.co/Y4PCmGNW/Data-Vault-Analogy.jpg"/></figure>
+<div class="comparison-cards">
+<div class="comp-card">
+<span class="comp-card-badge">Native iOS</span>
+<h3>Apple Hidden Album</h3>
+<p style="font-size: 0.9rem; color: var(--color-meta-text);">Built into iOS 16+ Photos app.</p>
+<ul class="comp-feature-list">
+<li>Locked behind Face ID/Touch ID</li>
+<li>Free and already installed</li>
+<li class="negative">Uses same passcode as lock screen</li>
+<li class="negative">Photos still backed up to standard iCloud</li>
+<li class="negative">No decoy or break-in alerts</li>
+</ul>
+</div>
+<div class="comp-card highlight">
+<span class="comp-card-badge" style="background: var(--color-primary-accent); color: var(--color-white);">Recommended</span>
+<h3>Folder Lock iOS</h3>
+<p style="font-size: 0.9rem; color: var(--color-meta-text);">Dedicated secure vault application.</p>
+<ul class="comp-feature-list">
+<li>Custom PIN different from lock screen</li>
+<li>Decoy password functionality</li>
+<li>Logs break-in attempts with photos</li>
+<li>Isolated from standard iCloud backups</li>
+<li>In-app secure camera</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- S12: FREE VS FULL VERSION -->
+<section class="section" id="pricing-comparison">
+<h2>Understanding Free vs. Premium Vaults</h2>
+<p>Most secure vault apps, including <a href="https://cloudstorageinfo.org/folder-lock-review" rel="noopener noreferrer" target="_blank">Folder Lock</a>, offer a robust free tier alongside a <a href="https://store.newsoftwares.net/?add=fl" rel="noopener noreferrer" target="_blank">premium upgrade</a>. Here is what you can expect when choosing between them:</p><figure class="content-figure compact"><img alt="Folder Lock product boxshot representing premium secure vault protection" decoding="async" loading="lazy" src="https://i.ibb.co/V0Sw4tk7/folder-lock-10-boxshot.png"/></figure>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 2rem;">
+<div style="flex: 1; min-width: 300px; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-white);">
+<h3 style="margin-top: 0; color: var(--color-meta-text);">Free Version</h3>
+<ul style="list-style: none; padding: 0; margin-top: 1rem;">
+<li style="padding: 8px 0; border-bottom: 1px solid var(--color-border);">✓ Up to 1 GB of secure locker space</li>
+<li style="padding: 8px 0; border-bottom: 1px solid var(--color-border);">✓ Sync across 2 devices</li>
+<li style="padding: 8px 0; border-bottom: 1px solid var(--color-border);">✓ Core photo and video hiding</li>
+<li style="padding: 8px 0; border-bottom: 1px solid var(--color-border);">✓ Basic secure wallets and secret notes</li>
+</ul>
+</div>
+<div style="flex: 1; min-width: 300px; padding: 24px; border: 1px solid var(--color-primary-accent); border-radius: var(--radius-card); background: var(--color-white); box-shadow: var(--shadow-card);">
+<h3 style="margin-top: 0; color: var(--color-primary-accent);">Pro Upgrade</h3>
+<ul style="list-style: none; padding: 0; margin-top: 1rem;">
+<li style="padding: 8px 0; border-bottom: 1px solid var(--color-border);">✓ <strong>Unlimited</strong> secure locker space</li>
+<li style="padding: 8px 0; border-bottom: 1px solid var(--color-border);">✓ Sync across up to 5 devices</li>
+<li style="padding: 8px 0; border-bottom: 1px solid var(--color-border);">✓ Unlimited secure sharing</li>
+<li style="padding: 8px 0; border-bottom: 1px solid var(--color-border);">✓ Advanced features (Cloud backup, hack monitoring)</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE ELEMENT: DECISION QUIZ -->
+<section class="section section-alt toc-target" id="interactive-quiz">
+<h2>Interactive Guide: Choose Your Protection Level</h2>
+<p>Not sure which method fits your security needs? Answer one question below.</p><figure class="content-figure"><img alt="Account privacy lock illustration for choosing a photo protection level" decoding="async" loading="lazy" src="https://i.ibb.co/C3dZb4Cy/account-privacy-lock-illustration.png"/></figure>
+<div class="interactive-quiz">
+<h3 style="margin-top: 0;">What is your primary concern?</h3>
+<form class="quiz-options" id="quiz-form">
+<label class="quiz-label">
+<input name="security-need" type="radio" value="casual"/>
+<span>"I just want to keep photos out of my main camera roll so friends don't see them when scrolling."</span>
+</label>
+<label class="quiz-label">
+<input name="security-need" type="radio" value="shared-pin"/>
+<span>"My partner/child knows my iPhone lock screen passcode, but I still want private photos hidden from them."</span>
+</label>
+<label class="quiz-label">
+<input name="security-need" type="radio" value="extreme"/>
+<span>"I have highly sensitive documents or photos and need break-in tracking and decoy vaults."</span>
+</label>
+</form>
+<div class="quiz-result" id="quiz-result">
+<strong id="qr-title" style="display: block; font-size: 1.1rem; margin-bottom: 8px;"></strong>
+<span id="qr-text" style="font-size: 0.95rem;"></span>
+</div>
+</div>
+</section>
+<!-- S16: TROUBLESHOOTING -->
+<section class="section toc-target" id="troubleshooting">
+<h2>Troubleshooting: iPhone Hidden Photos Not Locking</h2><figure class="content-figure"><img alt="Break-in monitoring illustration for detecting unauthorized vault access" decoding="async" loading="lazy" src="https://i.ibb.co/DPBbtBCG/Monitoring-Attempts.jpg"/></figure>
+<table class="trouble-table">
+<thead>
+<tr>
+<th>Problem</th>
+<th>Common Cause</th>
+<th>How to Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hidden album is visible without Face ID</strong></td>
+<td>"Use Face ID" toggle is disabled in Settings.</td>
+<td>Go to Settings &gt; Photos &gt; toggle on "Use Face ID".</td>
+</tr>
+<tr>
+<td><strong>Cannot find the Hidden album at all</strong></td>
+<td>The album is hidden from the utilities list.</td>
+<td>Go to Settings &gt; Photos &gt; toggle on "Show Hidden Album".</td>
+</tr>
+<tr>
+<td><strong>Forgot vault app password</strong></td>
+<td>Master PIN was forgotten and no recovery email set.</td>
+<td>Check for a saved recovery email. If none was set, data in high-security vaults usually cannot be recovered by design. Contact app support for specific recovery steps.</td>
+</tr>
+<tr>
+<td><strong>Lost photos after deleting the vault app</strong></td>
+<td>Deleting an iOS app removes its local sandboxed data.</td>
+<td>Never delete a secure vault app without exporting your photos back to your camera roll first. If you already deleted it, you can only recover the photos if you had the app's <a href="https://www.windowscentral.com/how-encrypt-data-storing-it-cloud-and-why-you-should" rel="noopener noreferrer" target="_blank">secure cloud backup</a> feature enabled beforehand.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- S20: FAQ (V3 Sticky sidebar categories - applied via layout logic) -->
+<section class="section section-alt toc-target" id="faq">
+<h2>Frequently Asked Questions</h2><figure class="content-figure"><img alt="Security shield protecting private mobile photos and sensitive data" decoding="async" loading="lazy" src="https://i.ibb.co/bjywWFhL/security-shield-protecting.jpg"/></figure>
+<div class="faq-layout">
+<div class="faq-cats">
+<h4>Topics</h4>
+<ul style="list-style: none; padding: 0;">
+<li style="margin-bottom: 12px; color: var(--color-primary-accent); font-weight: 600;">General Security</li>
+<li style="margin-bottom: 12px; color: var(--color-meta-text);">Passcodes &amp; Recovery</li>
+<li style="margin-bottom: 12px; color: var(--color-meta-text);">Vault Apps</li>
+</ul>
+</div>
+<div class="faq-content">
+<div class="accordion-item">
+<button aria-expanded="false" class="accordion-btn">Is the iPhone Hidden Album actually secure?</button>
+<div class="accordion-panel">
+<div class="accordion-inner">
+                  It provides moderate privacy, not high security. Because the Hidden Album in iOS 16+ unlocks with the same passcode used to unlock the phone itself, anyone who knows your device PIN can access your hidden photos. It is secure against casual snooping but vulnerable to intimate partner or family access.
+                </div>
+</div>
+</div>
+<div class="accordion-item">
+<button aria-expanded="false" class="accordion-btn">How to change password for hidden photos iPhone natively?</button>
+<div class="accordion-panel">
+<div class="accordion-inner">
+                  You cannot set a different password for hidden photos iphone natively. The Hidden Album is permanently tied to your main iPhone lock screen passcode and Face ID. To change it, you must change your entire iPhone passcode in Settings &gt; Face ID &amp; Passcode.
+                </div>
+</div>
+</div>
+<div class="accordion-item">
+<button aria-expanded="false" class="accordion-btn">Can someone access my hidden iPhone photos?</button>
+<div class="accordion-panel">
+<div class="accordion-inner">
+                  Yes, if they know your 6-digit device passcode. If your phone forces a passcode entry (e.g., after a restart or if Face ID fails), that same passcode will unlock the Hidden album in the Photos app.
+                </div>
+</div>
+</div>
+<div class="accordion-item">
+<button aria-expanded="false" class="accordion-btn">Can you password protect an album on iPhone with a custom name?</button>
+<div class="accordion-panel">
+<div class="accordion-inner">
+                  Not natively. The Apple Photos app only allows locking the specific "Hidden" and "Recently Deleted" folders. To create custom-named locked albums, you must use a third-party app like Folder Lock.
+                </div>
+</div>
+</div>
+<div class="accordion-item">
+<button aria-expanded="false" class="accordion-btn">How to recover photos from hidden album if I forgot my password?</button>
+<div class="accordion-panel">
+<div class="accordion-inner">
+                  If using the native iOS method, you must remember your iPhone passcode or reset the entire device via iCloud/iTunes (which erases the data unless you have a backup). If using a third-party vault, check if you bound a recovery email during setup. Authentic security apps do not have "backdoors" for forgotten passwords.
+                </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- S22: FINAL VERDICT -->
+<section class="section">
+<h2>Our Verdict</h2>
+<p>Learning <strong>how to password protect hidden photos on iPhone</strong> comes down to evaluating who you are protecting the photos from. If you just want to stop friends from swiping too far left when you show them a meme, the native iOS 16 Face ID lock is perfect.</p>
+<p>However, if you need genuine isolation—meaning you want to <strong>set a different password for hidden photos</strong> that is entirely separate from your phone's unlock PIN—you absolutely must use a dedicated vault.</p>
+<div style="margin-top: 2rem; display: flex; gap: 16px;">
+<a class="btn-outline" href="https://www.newsoftwares.net/download/folderlock-ios/" rel="noopener noreferrer" target="_blank">Download Folder Lock Free →</a>
+<a class="btn-outline" href="https://store.newsoftwares.net/?add=fl" rel="noopener noreferrer" target="_blank">View Full Version Pricing →</a>
+</div>
+</section>
+</main>
+</div>
+<!-- FOOTER -->
+<footer class="site-footer">
+<div class="footer-grid">
+<div class="footer-col">
+<h4 class="footer-brand-heading">
+<span aria-hidden="true" class="brand-mark">
+<svg focusable="false" role="img" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="brandPrism" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0%" stop-color="#FF6B6B"></stop>
+<stop offset="28%" stop-color="#FFB347"></stop>
+<stop offset="52%" stop-color="#96CEB4"></stop>
+<stop offset="76%" stop-color="#4ECDC4"></stop>
+<stop offset="100%" stop-color="#A29BFE"></stop>
+</lineargradient>
+</defs>
+<path d="M24 4 40 10v12c0 10.5-6.6 17.8-16 22C14.6 39.8 8 32.5 8 22V10l16-6Z" fill="url(#brandPrism)" opacity=".95"></path>
+<path d="M17 23h14v11H17V23Zm3-1v-3.4c0-2.7 1.8-4.6 4-4.6s4 1.9 4 4.6V22h-2.8v-3.2c0-1.35-.5-2.2-1.2-2.2s-1.2.85-1.2 2.2V22H20Z" fill="#fff"></path>
+</svg>
+</span>
+<span>Photo Privacy Hub</span></h4>
+<p style="color: #a5b4b1;">The complete guide to hiding and protecting iPhone photos.</p>
+</div>
+<div class="footer-col">
+<h4>Guides</h4>
+<ul>
+<li><a href="#overview">Face ID Locking</a></li>
+<li><a href="#comparison">Vault App Comparison</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Related Security Tools</h4>
+<ul>
+<li><a href="https://newsoftwares.net/" rel="noopener noreferrer" target="_blank">Folder Lock iOS</a></li>
+<li><a href="https://www.appbrain.com/app/photo-video-gallery-locker/net.newsoftwares.photandvideolocker" rel="noopener noreferrer" target="_blank">Photo Video Locker</a></li>
+<li><a href="https://chrome-stats.com/d/com.newsoftwares.applockandgalleryvault" rel="noopener noreferrer" target="_blank">App Lock</a></li>
+</ul>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<ul>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Terms of Use</a></li>
+<li><a href="#">Contact Support</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-disclosure">
+<p>This site operates as an independent editorial resource. Some links may earn a referral commission at no cost to you. Product recommendations reflect editorial judgment and independent assessment.</p>
+<p style="margin-top: 1rem;">Folder Lock is developed by <a href="https://newsoftwares.net/" rel="noopener noreferrer" style="color: #fff; text-decoration: underline;" target="_blank">NewSoftwares.net</a>.</p>
+<p style="margin-top: 1rem;">© 2026 Photo Privacy Hub</p>
+</div>
+</footer>
+<!-- SCHEMAS -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PhotoPrivacyHub",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "How to Password Protect Hidden Photos on iPhone — Complete Guide",
+    "description": "Learn exactly how to password protect hidden photos on iPhone. Compare iOS 16 native Face ID locking with third-party secure vaults like Folder Lock."
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Password Protect Hidden Photos on iPhone",
+    "author": {
+      "@type": "Organization",
+      "name": "PhotoPrivacyHub Editorial Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PhotoPrivacyHub"
+    },
+    "datePublished": "2026-05-23",
+    "dateModified": "2026-05-23"
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the iPhone Hidden Album actually secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It provides moderate privacy, not high security. Because the Hidden Album in iOS 16+ unlocks with the same passcode used to unlock the phone itself, anyone who knows your device PIN can access your hidden photos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to change password for hidden photos iPhone natively?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You cannot set a different password for hidden photos natively. The Hidden Album is permanently tied to your main iPhone lock screen passcode and Face ID."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can someone access my hidden iPhone photos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, if they know your 6-digit device passcode. If your phone forces a passcode entry, that same passcode will unlock the Hidden album in the Photos app."
+        }
+      }
+    ]
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Lock Hidden Photos with Face ID on iPhone",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "text": "Open the Settings app on your iPhone."
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Scroll down and tap on Photos."
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Find the toggle that says Use Face ID and turn it ON."
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Ensure the toggle for Show Hidden Album is also turned ON."
+      },
+      {
+        "@type": "HowToStep",
+        "text": "Open your Photos app, select the photos you want to hide, tap the three dots in the top right, and select Hide."
+      }
+    ]
+  }
+  </script>
+<!-- INTERACTIVITY SCRIPTS -->
+<script defer="">
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Sticky Header
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // 2. Mobile Menu
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const navLinks = document.getElementById('nav-links');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+      }
+
+      // 3. Smooth Scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          navLinks.classList.remove('active'); // close mobile menu on click
+          const targetId = this.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const headerOffset = 80;
+            const elementPosition = targetEl.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+
+      // 4. Accordion Logic
+      const accordions = document.querySelectorAll('.accordion-btn');
+      accordions.forEach(acc => {
+        acc.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+          this.setAttribute('aria-expanded', !expanded);
+          const panel = this.nextElementSibling;
+          if (!expanded) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          } else {
+            panel.style.maxHeight = null;
+          }
+        });
+      });
+
+      // 5. Signature Detail: Sticky TOC Intersection Observer
+      const tocLinks = document.querySelectorAll('.sticky-toc a');
+      const sections = document.querySelectorAll('.toc-target');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+
+      // 7. Prism refraction snap entrance and prism line growth
+      const snapTargets = document.querySelectorAll('.hero, .section, .saas-moment, .content-figure, .refraction-prism');
+      snapTargets.forEach(el => el.classList.add('snap-ready'));
+      const snapObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            snapObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      snapTargets.forEach(el => snapObserver.observe(el));
+
+      // 6. Interactive Quiz Logic
+      const quizForm = document.getElementById('quiz-form');
+      const quizResult = document.getElementById('quiz-result');
+      const qrTitle = document.getElementById('qr-title');
+      const qrText = document.getElementById('qr-text');
+
+      if (quizForm) {
+        quizForm.addEventListener('change', (e) => {
+          const val = e.target.value;
+          quizResult.style.display = 'block';
+          
+          if (val === 'casual') {
+            qrTitle.textContent = "Recommendation: Native iOS Hidden Album";
+            qrText.textContent = "You don't need extra software. Just ensure your iPhone is updated to iOS 16 or later, and toggle 'Use Face ID' in Settings > Photos.";
+          } else if (val === 'shared-pin') {
+            qrTitle.textContent = "Recommendation: Third-Party Vault App";
+            qrText.textContent = "Since your lock screen PIN is compromised (shared), Apple's native lock isn't enough. Use Folder Lock iOS to set an independent master PIN for your photos.";
+          } else if (val === 'extreme') {
+            qrTitle.textContent = "Recommendation: Secure Vault with Decoy Features";
+            qrText.textContent = "You need high security. A dedicated vault app like Folder Lock allows you to set up a 'fake' PIN that opens an empty gallery if you are ever forced to open your phone.";
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
